@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cute Calculator</title>
+	<style type="text/css">
+		.calculator {
+  background-color: #f9e3e3;
+  border-radius: 10px;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.display {
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.display input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 24px;
+  border: none;
+  outline: none;
+  text-align: right;
+}
+
+.buttons button {
+  background-color: #f0c6c6;
+  border-radius: 5px;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 18px;
+  margin: 5px;
+  width: 50px;
+  height: 50px;
+  outline: none;
+}
+
+.buttons button:hover {
+  background-color: #e0b2b2;
+  cursor: pointer;
+}
+
+.buttons .clear {
+  background-color: #ffa8a8;
+  color: #fff;
+}
+
+.buttons .equals {
+  background-color: #a8ffa8;
+  color: #fff;
+}
+
+	</style>
+</head>
+<body>
+	<div class="calculator">
+		<div class="calculator-screen">
+			 <input type="text" readonly>
+		</div>
+		<div class="calculator-buttons">
+		<button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>+</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>-</button>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>*</button>
+    <button>0</button>
+    <button>.</button>
+    <button>/</button>
+    <button class="clear">C</button>
+    <button class="equals">=</button>
+		</div>
+	</div>
+</body>
+</html>
