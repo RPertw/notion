@@ -1,88 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Cute Calculator</title>
-	<style type="text/css">
-		.calculator {
-  background-color: #f9e3e3;
-  border-radius: 10px;
-  width: 300px;
-  margin: 0 auto;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.display {
-  background-color: #fff;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-
-.display input {
-  width: 100%;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 24px;
-  border: none;
-  outline: none;
-  text-align: right;
-}
-
-.buttons button {
-  background-color: #f0c6c6;
-  border-radius: 5px;
-  border: none;
-  padding: 10px;
-  box-sizing: border-box;
-  font-size: 18px;
-  margin: 5px;
-  width: 50px;
-  height: 50px;
-  outline: none;
-}
-
-.buttons button:hover {
-  background-color: #e0b2b2;
-  cursor: pointer;
-}
-
-.buttons .clear {
-  background-color: #ffa8a8;
-  color: #fff;
-}
-
-.buttons .equals {
-  background-color: #a8ffa8;
-  color: #fff;
-}
-
-	</style>
+  <title>Cute Calculator</title>
+  <style>
+    /* 計算機按鈕樣式 */
+    .button {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+      border-radius: 50%;
+      background-color: #FFC0CB;
+      color: white;
+      border: none;
+      margin: 5px;
+      cursor: pointer;
+    }
+    .button:hover {
+      background-color: #FF69B4;
+    }
+    /* 計算機顯示器樣式 */
+    #display {
+      width: 200px;
+      height: 50px;
+      font-size: 24px;
+      text-align: right;
+      background-color: #FFE4E1;
+      border: none;
+      margin: 5px;
+      padding: 5px;
+    }
+    /* 整個計算機區塊樣式 */
+    #calculator {
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin: 50px auto;
+      padding: 10px;
+      background-color: #F5F5F5;
+    }
+  </style>
 </head>
 <body>
-	<div class="calculator">
-		<div class="calculator-screen">
-			 <input type="text" readonly>
-		</div>
-		<div class="calculator-buttons">
-		<button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>+</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>-</button>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>*</button>
-    <button>0</button>
-    <button>.</button>
-    <button>/</button>
-    <button class="clear">C</button>
-    <button class="equals">=</button>
-		</div>
-	</div>
+  <div id="calculator">
+    <input type="text" id="display" value="0" readonly>
+    <br>
+    <button class="button" onclick="clearDisplay()">C</button>
+    <button class="button" onclick="backspace()">←</button>
+    <button class="button" onclick="insert('+')">+</button>
+    <button class="button" onclick="insert('-')">-</button>
+    <br>
+    <button class="button" onclick="insert('7')">7</button>
+    <button class="button" onclick="insert('8')">8</button>
+    <button class="button" onclick="insert('9')">9</button>
+    <button class="button" onclick="insert('*')">*</button>
+    <br>
+    <button class="button" onclick="insert('4')">4</button>
+    <button class="button" onclick="insert('5')">5</button>
+    <button class="button" onclick="insert('6')">6</button>
+    <button class="button" onclick="insert('/')">/</button>
+    <br>
+    <button class="button" onclick="insert('1')">1</button>
+    <button class="button" onclick="insert('2')">2</button>
+    <button class="button" onclick="insert('3')">3</button>
+    <button class="button" onclick="calculate()">=</button>
+    <br>
+    <button class="button" onclick="insert('0')">0</button>
+    <button class="button" onclick="insert('.')">.</button>
+  </div>
+
+  <script>
+    let display = document.getElementById("display");
+    let expression = "";
+
+    // 將按鈕上的文字插入到顯示器中
+    function insert(value) {
+      if (display.value === "0") {
+        display.value = value;
+      } else {
+        display.value += value;
+      }
+      expression += value;
+    }
+
+// 刪除顯示器中最後一個字符
+function backspace() {
+  let value = display.value;
+  display.value = value.substring(0, value.length - 1);
+  expression = expression.substring(0, expression.length - 1);
+}
+
+// 清除顯示器和表達式
+function clearDisplay() {
+  display.value = "0";
+  expression = "";
+}
+
+// 計算表達式的值
+function calculate() {
+  let result = eval(expression);
+  display.value = result;
+  expression = result.toString();
+}
+</script>
 </body>
 </html>
