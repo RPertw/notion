@@ -31,12 +31,34 @@
     }
     /* 整個計算機區塊樣式 */
     #calculator {
-      width: 250px;
+      width: 100%;
+      max-width: 250px; /* 添加这行，设置最大宽度 */
       border: 1px solid #ccc;
       border-radius: 5px;
       margin: 20px auto;
       padding: 10px;
       background-color: #F5F5F5;
+    }
+    
+      /* 媒體查詢：螢幕寬度小於等於 480px 時，計算機按鈕大小設為 40px */
+    @media only screen and (max-width: 480px) {
+      .button {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        margin: 3px;
+      }
+      #display {
+        width: 180px;
+        height: 40px;
+        font-size: 22px;
+        margin: 3px;
+      }
+      #calculator {
+        max-width: 200px;
+        margin: 10px auto;
+        padding: 5px;
+      }
     }
   </style>
 </head>
